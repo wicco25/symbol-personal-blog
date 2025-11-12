@@ -1,0 +1,22 @@
+{%extends 'layout.html'%}
+{%block title%}设置{%endblock%}
+{%block main%}
+<form action="/setting" method="post">
+    修改用户名：
+    <br>
+    <input autocomplete="false" autofocus="true" name="new_name" placeholder="新用户名" type="text" required>
+    密码：
+    <br>
+    <input type="password" placeholder="密码" name="password" required\>
+    <button type="submit">确认修改用户名</button>
+</form>
+<hr>
+<form action="/setting" method="post">
+    修改密码：
+    <br>
+    原 密 码：<input type="password" name="password" required>
+    新 密 码：<input type="password" name="new_password" required>
+    确认新密码：<input type="password" name="confirm_password" required>
+    <button type="submit">修改密码</button>
+</form>
+{%endblock%}

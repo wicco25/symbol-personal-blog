@@ -1,0 +1,10 @@
+{%extends 'layout.html'%}
+{%block title%}登录{%endblock%}
+{%block main%}
+<form action="/login" method="post">
+    用户名：<input autocomplete="false" autofocus="true" name="username" placeholder="username" type="text" class="login-input" required>
+    <br>
+    密 码：<input name="password" type="password" required class="login-input">
+    <button type="submit" class="login-button">登录</button>
+</form>
+{%endblock%}

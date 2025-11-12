@@ -1,0 +1,10 @@
+{%extends 'layout.html'%}
+{%block title%}注册{%endblock%}
+{%block main%}
+<form action="/register" method="post">
+    用户名：<input autocomplete="false" autofocus="true" name="username" placeholder="username" type="text" class="login-input">
+    <br>
+    密 码：<input name="password" type="password" class="login-input">
+    <button type="submit" class="login-button">注册</button>
+</form>
+{%endblock%}

@@ -1,0 +1,13 @@
+{%extends 'layout.html'%}
+{%block title%}{{article['title']}}{%endblock%}
+{%block main%}
+
+<h1>{{article['title']}}</h1>
+<h4>{{article['writer']}}</h4>
+<div style="white-space: pre-wrap;">
+<article>{{article['article']}}</article>
+</div>
+
+
+
+{%endblock%}

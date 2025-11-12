@@ -1,0 +1,13 @@
+{%extends 'layout.html'%}
+{%block title%}发布文章{%endblock%}
+{%block main%}
+<form action="/release" method="post">
+    标题：<input autocomplete="false" autofocus="true" name="title"  type="text" required>
+    <br>
+    类型：  <input type="text" name="type" required>
+    <br>
+    文章：<textarea name="article" class="text" required>
+    </textarea>
+    <button type="submit" class="login-button">发布</button>
+</form>
+{%endblock%}

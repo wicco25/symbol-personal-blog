@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>{%block title%}{%endblock%}</title>
+</head>
+<body>
+   
+    <nav>
+        <a href="/">文章</a>
+     
+        
+        {%if session['user_id']%}
+        <a href="/setting">设置</a>
+        <a href="/logout">退出登录</a>
+            {%if session['user_id']==1%}
+            <a href="/release">发布文章</a>
+            {%endif%}
+            {%else%}<a href="/login">登录</a>
+            <a href="/register">注册</a>
+        {%endif%}
+        {%if username%}
+        <button class="changeColor" onclick="changeBackgroundColor('#FBF0D9')" >hello,{{username}}</button>
+        {%else%}
+        <button class="changeColor" onclick="changeBackgroundColor('#FBF0D9')" >hello</button>
+        {%endif%}
+    </nav>
+
+    {%block main%}{%endblock%}
+        
+    <script src="/static/js/main.js"></script>
+</body>
+
+</html>
