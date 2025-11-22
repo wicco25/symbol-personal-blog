@@ -49,10 +49,9 @@ def init_db():
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY(user_id) REFERENCES users(id))''')
     #生成管理账户
-    try:
-        db.execute('INSERT INTO users(id,username,hash,role) VALUES(?,?,?,?)',(1,'admin',str(generate_password_hash('helloworld')),'admin'))
-    except:
-        1
+    
+    db.execute('INSERT OR IGNOTR INTO users(id,username,hash,role) VALUES(?,?,?,?)',(1,'admin',str(generate_password_hash('helloworld')),'admin'))
+    
     db.commit()
     
     
@@ -60,13 +59,10 @@ def init_db():
 @app.route('/',methods=['GET','POST'])
 def index():
     articles=find_article()
-    try:
-        if session['user_id']:
-            db=get_db()
-            user=db.execute('SELECT * FROM users WHERE id=?',(session['user_id'],)).fetchone()
-            return render_template('index.html',articles=articles,username=user['username'])
-    except:
-        1
+    if session['user_id']:
+        db=get_db()
+        user=db.execute('SELECT * FROM users WHERE id=?',(session['user_id'],)).fetchone()
+        return render_template('index.html',articles=articles,username=user['username'])
    
     return render_template('index.html',articles=articles)
 
