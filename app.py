@@ -50,7 +50,7 @@ def init_db():
         FOREIGN KEY(user_id) REFERENCES users(id))''')
     #生成管理账户
     
-    db.execute('INSERT OR IGNOTR INTO users(id,username,hash,role) VALUES(?,?,?,?)',(1,'admin',str(generate_password_hash('helloworld')),'admin'))
+    db.execute('INSERT OR IGNORE INTO users(id,username,hash,role) VALUES(?,?,?,?)',(1,'admin',str(generate_password_hash('helloworld')),'admin'))
     
     db.commit()
     
